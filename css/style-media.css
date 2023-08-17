@@ -1,0 +1,15 @@
+@media(max-width: 425.9px){
+    .offer{
+        display: block;
+        width: 1200px;
+        padding: 0 15px;
+    }
+    .offer .container{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .menu,.order,.promotion,.footer,    .calculating{
+        width: 1200px;
+    }
+}
