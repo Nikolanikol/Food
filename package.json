@@ -8,11 +8,9 @@
   "author": "",
   "license": "ISC",
   "description": "",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "devDependencies": {
-    "webpack-cli": "^5.1.4",
-    "json-server": "^0.17.3"
+    "json-server": "^0.17.3",
+    "webpack-cli": "^5.1.4"
   }
 }

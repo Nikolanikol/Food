@@ -9,7 +9,11 @@
         flex-wrap: wrap;
     }
 
-    .menu,.order,.promotion,.footer,    .calculating{
+    .menu,.order,.promotion,.footer,.header,.calculating{
         width: 1200px;
+    }
+    .menu, .preview, .promotion, .footer{
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }

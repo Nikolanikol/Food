@@ -3,7 +3,31 @@ import { getResource } from "../services/services";
 function cards(){
      // класс
     const menu = document.querySelector('.menu'),
-        menuCards = menu.querySelector('.container');
+        menuCards = menu.querySelector('.container'),
+        menuArray =  [
+            {
+              "img": "img/tabs/vegy.jpg",
+              "altimg": "vegy",
+              "title": "Меню 'Фитнес'",
+              "descr": "Меню 'Фитнес' - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!",
+              "price": 9
+            },
+            {
+              "img": "img/tabs/post.jpg",
+              "altimg": "post",
+              "title": "Меню 'Постное'",
+              "descr": "Меню 'Постное' - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.",
+              "price": 14
+            },
+            {
+              "img": "img/tabs/elite.jpg",
+              "altimg": "elite",
+              "title": "Меню 'Премиум'",
+              "descr": "В меню 'Премиум' мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!",
+              "price": 21
+            }
+          ];
+
 
     class ClassTest {
         constructor(imgSource, alt, title, description, price) { //проектируем объект с заданными аргументами
@@ -31,14 +55,17 @@ function cards(){
             menuCards.append(div); // 3. добавляем сформированный блок в обертку для карточек
         }
     }
+    menuArray.forEach(({ img, altimg, title, descr, price })=>{
+        new ClassTest(img, altimg, title, descr, price).renderCard()
+    })
 
-    getResource('http://localhost:3000/menu') // для формирования карточек получаем ответ от сервера.
-                                            // Ответ приходит в виде promise. обрабатываем его через then
-        .then(data => {// data приходит в виде массива из 3 объектов
-            data.forEach(({ img, altimg, title, descr, price }) => { //перебираем элементы data с помощью класса ClassTest
-                new ClassTest(img, altimg, title, descr, price).renderCard()
-            })
-        });
+    // getResource('http://localhost:3000/menu') // для формирования карточек получаем ответ от сервера.
+    //                                         // Ответ приходит в виде promise. обрабатываем его через then
+    //     .then(data => {// data приходит в виде массива из 3 объектов
+    //         data.forEach(({ img, altimg, title, descr, price }) => { //перебираем элементы data с помощью класса ClassTest
+    //             new ClassTest(img, altimg, title, descr, price).renderCard()
+    //         })
+    //     });
 }
 
 export default cards;
