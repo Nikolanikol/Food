@@ -1,5 +1,6 @@
 function timer (selector , deadline){
         function getLeftTime(endTime) {
+            //фиксит парсинг даты на IOS
             function parseDate(dateStr) {
                 const [year, month, day] = dateStr.split('-').map(Number);
                 return new Date(year, month - 1, day);
