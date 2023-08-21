@@ -1,11 +1,12 @@
 function timer (selector , deadline){
-       // timer////////////
-    //    let endTime = new Date(2023, 11, 9, 21, 35)
-    //    let nowTime = new Date();
-       // функция получения остатка времени.возвращает обьект данных
-       function getLeftTime(endTime) {
-           
-            const leftTimeParse = Date.parse(endTime) - Date.parse(new Date),
+        function getLeftTime(endTime) {
+            function parseDate(dateStr) {
+                const [year, month, day] = dateStr.split('-').map(Number);
+                return new Date(year, month - 1, day);
+                }
+
+            // const leftTimeParse = Date.parse(endTime) - Date.parse(new Date),
+            const leftTimeParse = parseDate(endTime).getTime() - new Date().getTime();
                day = Math.floor(leftTimeParse / (24 * 60 * 60 * 1000)),
                hours = Math.floor((leftTimeParse / (1000 * 60 * 60) % 24)),
                minute = Math.floor((leftTimeParse / (1000 * 60)) % 60),
@@ -18,9 +19,7 @@ function timer (selector , deadline){
                leftTimeParse: leftTimeParse,
            }
        }
-   
        // 1. получаем элементы из документа 
-   
        function setLeftTime(selector, deadline) {
 
            let timer = document.querySelector(selector),
