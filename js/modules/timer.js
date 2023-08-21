@@ -3,11 +3,12 @@ function timer (selector , deadline){
             //фиксит парсинг даты на IOS
             function parseDate(dateStr) {
                 const [year, month, day] = dateStr.split('-').map(Number);
+                console.log(new Date(year, month - 1, day))
                 return new Date(year, month - 1, day);
                 }
 
             // const leftTimeParse = Date.parse(endTime) - Date.parse(new Date),
-            const leftTimeParse = parseDate(endTime).getTime() - new Date().getTime();
+            const leftTimeParse = parseDate(endTime).getTime() - new Date().getTime(),
                day = Math.floor(leftTimeParse / (24 * 60 * 60 * 1000)),
                hours = Math.floor((leftTimeParse / (1000 * 60 * 60) % 24)),
                minute = Math.floor((leftTimeParse / (1000 * 60)) % 60),
